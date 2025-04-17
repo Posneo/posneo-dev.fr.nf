@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À propos - posneo</title>
+    <title>Contact - posneo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -34,7 +34,6 @@
             margin: 0 auto;
             overflow-x: hidden;
         }
-
 
         header {
             display: flex;
@@ -94,72 +93,10 @@
             font-weight: 600;
         }
 
-
         main {
             padding: calc(var(--header-height) + 3rem) 4rem 4rem;
             min-height: 100vh;
         }
-
-
-        .about-header {
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeIn 1s forwards 0.3s;
-        }
-
-        h1, h2 {
-            background: linear-gradient(90deg, #6C4DF6 0%, #3A0CA3 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1.5rem;
-        }
-
-        h2 {
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
-            margin: 2rem 0 1rem;
-        }
-
-        .subtitle {
-            font-size: 1.25rem;
-            color: var(--gray);
-            max-width: 600px;
-            line-height: 1.6;
-        }
-
-        .portrait {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 2rem 0;
-            box-shadow: 0 10px 30px rgba(108, 77, 246, 0.2);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .skill-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: var(--transition);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
 
         footer {
             text-align: center;
@@ -168,11 +105,119 @@
             border-top: 1px solid rgba(0,0,0,0.05);
         }
 
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
+        /* Styles spécifiques à la page Contact */
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
         }
 
+        .contact-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        h1 {
+            background: linear-gradient(90deg, #6C4DF6 0%, #3A0CA3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .contact-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(108, 77, 246, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            align-self: flex-start;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(108, 77, 246, 0.3);
+        }
 
         @media (max-width: 768px) {
             :root {
@@ -191,9 +236,12 @@
                 gap: 1rem;
             }
             
-            .portrait {
-                width: 150px;
-                height: 150px;
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                padding: 1rem;
             }
         }
     </style>
@@ -204,46 +252,86 @@
         <nav>
             <a href="/">Accueil</a>
             <a href="articles.html">Projets</a>
-            <a href="/about" class="active">À propos</a>
-            <a href="/contact">Contact</a>
+            <a href="/about">À propos</a>
+            <a href="/contact" class="active">Contact</a>
         </nav>
     </header>
     
     <main>
-        <section class="about-header">
-            <h1>Qui suis-je ?</h1>
-            <p class="subtitle">Designer et développeur passionné, je crée des expériences digitales mémorables.</p>
-            <img src="/images/portrait.jpg" alt="Mon portrait" class="portrait">
-        </section>
-        
-        <section>
-            <h2>Mon parcours</h2>
-            <p>parcours en ecriture...</p>
-        </section>
-        
-        <section>
-            <h2>Mes compétences</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>UI/UX Design</h3>
-                    <p>Création d'interfaces intuitives et esthétiques</p>
+        <div class="contact-container">
+            <section class="contact-header">
+                <h1>Me contacter</h1>
+                <p class="subtitle">Une question, un projet ? Envoyez-moi un message et je vous répondrai rapidement.</p>
+            </section>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>Email</h3>
+                        <p>contact@posneo.com</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h3>Réseaux sociaux</h3>
+                        <p>Twitter: @posneo</p>
+                        <p>LinkedIn: /posneo</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h3>Heures de disponibilité</h3>
+                        <p>Lundi-Vendredi: 9h-18h</p>
+                    </div>
                 </div>
                 
-                <div class="skill-card">
-                    <h3>Développement Frontend</h3>
-                    <p>HTML, CSS, JavaScript modernes</p>
-                </div>
-                
-                <div class="skill-card">
-                    <h3>Direction Artistique</h3>
-                    <p>Identité visuelle et branding</p>
-                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Votre nom</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Votre email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Sujet</label>
+                        <input type="text" id="subject" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Votre message</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Envoyer le message</button>
+                </form>
             </div>
-        </section>
+        </div>
     </main>
     
     <footer>
-        <p>FURSTENBERG Texas. GNU GENERAL PUBLIC LICENSE.</p>
+        <p>© 2025 posneo - FURSTENBERG Texas. GNU GENERAL PUBLIC LICENSE.</p>
     </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            if (formData.name && formData.email.includes('@') && formData.message) {
+                alert('Message envoyé avec succès!\n\n(En production, ceci enverrait un vrai email)');
+                this.reset();
+            } else {
+                alert('Veuillez remplir tous les champs correctement.');
+            }
+        });
+    </script>
 </body>
 </html>
