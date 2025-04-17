@@ -18,8 +18,92 @@
             --header-height: 80px;
         }
 
-        /* [Vos styles existants - header, footer, etc.] */
-        /* ... Gardez tout le CSS précédent ... */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            padding: 0;
+            max-width: 1400px;
+            margin: 0 auto;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 4rem;
+            height: var(--header-height);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(248, 249, 250, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--primary);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        main {
+            padding: calc(var(--header-height) + 3rem) 4rem 4rem;
+            min-height: 100vh;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
 
         /* Styles spécifiques à la page Contact */
         .contact-container {
@@ -31,6 +115,23 @@
         .contact-header {
             margin-bottom: 3rem;
             text-align: center;
+        }
+
+        h1 {
+            background: linear-gradient(90deg, #6C4DF6 0%, #3A0CA3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
 
         .contact-grid {
@@ -61,6 +162,7 @@
         .contact-card h3 {
             color: var(--primary);
             margin-bottom: 0.5rem;
+            font-size: 1.25rem;
         }
 
         .contact-form {
@@ -114,10 +216,26 @@
         .submit-btn:hover {
             background: var(--primary-dark);
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(108, 77, 246, 0.3);
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
+            :root {
+                --header-height: 70px;
+            }
+            
+            header {
+                padding: 0 1.5rem;
+            }
+            
+            main {
+                padding: calc(var(--header-height) + 2rem) 1.5rem 2rem;
+            }
+            
+            nav {
+                gap: 1rem;
+            }
+            
             .contact-grid {
                 grid-template-columns: 1fr;
             }
@@ -155,13 +273,13 @@
                     
                     <div class="contact-card">
                         <h3>Réseaux sociaux</h3>
-                        <p>Twitter: @posneo</p>
-                        <p>LinkedIn: /posneo</p>
+                        <p>pas linked</p>
+                        <p>pas linked</p>
                     </div>
                     
                     <div class="contact-card">
                         <h3>Heures de disponibilité</h3>
-                        <p>Lundi-Vendredi: 9h-18h</p>
+                        <p>pas de disponibilités !</p>
                     </div>
                 </div>
                 
@@ -200,7 +318,6 @@
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Récupération des valeurs
             const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
@@ -208,9 +325,8 @@
                 message: document.getElementById('message').value
             };
             
-            // Validation basique
             if (formData.name && formData.email.includes('@') && formData.message) {
-                alert('Message envoyé avec succès! (Fonctionnalité à connecter à un backend)');
+                alert('Message envoyé avec succès!\n\n(En production, ceci enverrait un vrai email)');
                 this.reset();
             } else {
                 alert('Veuillez remplir tous les champs correctement.');
