@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <style>
+        /* Reset et polices */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* En-tête */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            position: relative;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.7;
+        }
+        
+        /* Contenu principal */
+        .hero {
+            margin-bottom: 80px;
+        }
+        
+        h1 {
+            font-size: clamp(32px, 5vw, 64px);
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            max-width: 600px;
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+        
+        /* Grille de projets */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .project {
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+            background: #eee;
+        }
+        
+        .project img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project:hover img {
+            transform: scale(1.05);
+        }
+        
+        .project-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Pied de page */
+        footer {
+            margin-top: 100px;
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.6;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 40px;
+            }
+            
+            nav {
+                margin-top: 20px;
+            }
+            
+            nav a {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MonNom</div>
+        <nav>
+            <a href="#">Accueil</a>
+            <a href="#">Projets</a>
+            <a href="#">À propos</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <h1>Je crée des expériences numériques simples et élégantes.</h1>
+            <p class="subtitle">Designer et développeur basé à [Ville]. Je mets mon expertise au service de projets innovants.</p>
+        </section>
+        
+        <section class="projects">
+            <div class="project">
+                <img src="https://via.placeholder.com/600x400" alt="Projet 1">
+                <div class="project-info">
+                    <h3>Projet 1</h3>
+                    <p>Design • Développement</p>
+                </div>
+            </div>
+            
+            <div class="project">
+                <img src="https://via.placeholder.com/600x400" alt="Projet 2">
+                <div class="project-info">
+                    <h3>Projet 2</h3>
+                    <p>Branding • Identité visuelle</p>
+                </div>
+            </div>
+            
+            <div class="project">
+                <img src="https://via.placeholder.com/600x400" alt="Projet 3">
+                <div class="project-info">
+                    <h3>Projet 3</h3>
+                    <p>Stratégie • Direction artistique</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© 2025 FURSTENBERGTexas. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
