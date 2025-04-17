@@ -672,3 +672,21 @@ may consider it more useful to permit linking proprietary applications with
 the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
+
+
+--- ADDITIONAL TERMS ---
+
+1. Fork Notification Requirement:
+   - Toute création de fork public ou privé sur GitHub/GitLab/etc. doit être notifiée par email à [ton-email@domaine.com] dans les 7 jours.
+
+2. Attribution Renforcement:
+   - Toute mention du projet doit inclure un lien cliquable vers le dépôt original ET la mention :
+     "Ceci est une copie non affiliée du projet original [Nom] © [Année]. Les modifications sont interdites sans autorisation."
+
+3. Commercial Use Ban:
+   - Toute utilisation commerciale (même partielle) nécessite un accord écrit signé.
+
+4. Audit Right:
+   - Le créateur original se réserve le droit d'exiger la preuve de conformité à cette licence pour tout fork.
+
+© [Année] [Ton Nom/Pseudo] - Tous droits réservés au-delà des termes de l'AGPLv3.
