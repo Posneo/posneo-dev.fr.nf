@@ -1,4 +1,4 @@
-# posneo-dev.fr.nf
+# posneo.fr.nf
 public repo of posneo-dev.fr.nf
 
 this file will serve as a log update file.
