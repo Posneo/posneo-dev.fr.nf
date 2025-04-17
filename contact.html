@@ -3,20 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Mon Site</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>À propos - posneo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6C4DF6;
+            --primary-dark: #5A3EE8;
+            --dark: #1A1A1A;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --header-height: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            padding: 0;
+            max-width: 1400px;
+            margin: 0 auto;
+            overflow-x: hidden;
+        }
+
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 4rem;
+            height: var(--header-height);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(248, 249, 250, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--primary);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+
+        main {
+            padding: calc(var(--header-height) + 3rem) 4rem 4rem;
+            min-height: 100vh;
+        }
+
+
+        .about-header {
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.3s;
+        }
+
+        h1, h2 {
+            background: linear-gradient(90deg, #6C4DF6 0%, #3A0CA3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            margin: 2rem 0 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .portrait {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(108, 77, 246, 0.2);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+
+        @media (max-width: 768px) {
+            :root {
+                --header-height: 70px;
+            }
+            
+            header {
+                padding: 0 1.5rem;
+            }
+            
+            main {
+                padding: calc(var(--header-height) + 2rem) 1.5rem 2rem;
+            }
+            
+            nav {
+                gap: 1rem;
+            }
+            
+            .portrait {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <div class="logo">posneo</div>
+        <a href="/" class="logo">posneo</a>
         <nav>
-            <a href="index.html" class="active">Accueil</a>
-            <a href="articles.html">Projets</a>
-            <a href="about.html">À propos</a>
-            <a href="contact.html">Contact</a>
+            <a href="/">Accueil</a>
+            <a href="/about" class="active">À propos</a>
+            <a href="/contact">Contact</a>
         </nav>
     </header>
-
     <main class="contact-container">
         <h1>Me contacter</h1>
         <form id="contactForm">
