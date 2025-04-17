@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio</title>
+    <title>posneo | Portfolio Créatif</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #6C4DF6;
+            --primary-dark: #5A3EE8;
+            --dark: #1A1A1A;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
         /* Reset et polices */
         * {
             margin: 0;
@@ -13,13 +25,14 @@
         }
         
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-            padding: 40px;
-            max-width: 1200px;
+            color: var(--dark);
+            background-color: var(--light);
+            padding: 0;
+            max-width: 1400px;
             margin: 0 auto;
+            overflow-x: hidden;
         }
         
         /* En-tête */
@@ -27,68 +40,147 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 60px;
+            padding: 2rem 4rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(248, 249, 250, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
         }
         
         .logo {
-            font-size: 24px;
-            font-weight: 300;
+            font-size: 1.5rem;
+            font-weight: 600;
             letter-spacing: 1px;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+        
+        nav {
+            display: flex;
+            gap: 2rem;
         }
         
         nav a {
-            margin-left: 30px;
             text-decoration: none;
-            color: #333;
-            font-size: 16px;
+            color: var(--dark);
+            font-size: 1rem;
+            font-weight: 500;
             position: relative;
-            transition: opacity 0.3s;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
         }
         
         nav a:hover {
-            opacity: 0.7;
+            color: var(--primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
         
         /* Contenu principal */
+        main {
+            padding: 8rem 4rem 4rem;
+            min-height: 100vh;
+        }
+        
         .hero {
-            margin-bottom: 80px;
+            margin-bottom: 6rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards 0.3s;
         }
         
         h1 {
-            font-size: clamp(32px, 5vw, 64px);
-            font-weight: 300;
-            line-height: 1.2;
-            margin-bottom: 20px;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
             max-width: 800px;
+            background: linear-gradient(90deg, #6C4DF6 0%, #3A0CA3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .subtitle {
-            font-size: 18px;
+            font-size: 1.25rem;
             max-width: 600px;
-            opacity: 0.8;
-            margin-bottom: 40px;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(108, 77, 246, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(108, 77, 246, 0.4);
         }
         
         /* Grille de projets */
         .projects {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
         }
         
         .project {
             position: relative;
             overflow: hidden;
-            height: 400px;
+            height: 420px;
             background: #eee;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .project:nth-child(1) { animation: fadeIn 0.8s forwards 0.4s; }
+        .project:nth-child(2) { animation: fadeIn 0.8s forwards 0.6s; }
+        .project:nth-child(3) { animation: fadeIn 0.8s forwards 0.8s; }
+        
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
         }
         
         .project img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: var(--transition);
         }
         
         .project:hover img {
@@ -100,46 +192,85 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            transform: translateY(100%);
+            transition: var(--transition);
+            opacity: 0;
+        }
+
+        .project:hover .project-info {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .project-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-info p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+        }
+
+        .tag {
+            background-color: rgba(255,255,255,0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
         }
         
         /* Pied de page */
         footer {
-            margin-top: 100px;
+            margin-top: 6rem;
             text-align: center;
-            font-size: 14px;
-            opacity: 0.6;
+            padding: 2rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
-        
+
+        /* Animations */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
-            body {
-                padding: 20px;
-            }
-            
             header {
-                flex-direction: column;
-                align-items: flex-start;
-                margin-bottom: 40px;
+                padding: 1.5rem;
             }
-            
+
+            main {
+                padding: 6rem 1.5rem 2rem;
+            }
+
             nav {
-                margin-top: 20px;
+                gap: 1.2rem;
             }
-            
-            nav a {
-                margin-left: 0;
-                margin-right: 15px;
+
+            .projects {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">posneo</div>
+        <a href="#" class="logo">posneo</a>
         <nav>
-            <a href="#">Accueil</a>
+            <a href="#" class="active">Accueil</a>
             <a href="#">Projets</a>
             <a href="#">À propos</a>
             <a href="#">Contact</a>
@@ -148,39 +279,77 @@
     
     <main>
         <section class="hero">
-            <h1>Je crée des expériences numériques simples et élégantes.</h1>
-            <p class="subtitle">Designer et développeur basé en france. Je mets mon expertise au service de projets innovants.</p>
+            <h1>Créateur d'expériences digitales mémorables</h1>
+            <p class="subtitle">Designer et développeur basé en France. Je combine esthétique et technologie pour donner vie à des projets uniques.</p>
+            <a href="#" class="cta-button">Voir mes projets</a>
         </section>
         
         <section class="projects">
             <div class="project">
-                <img src="https://via.placeholder.com/600x400" alt="Projet 1">
+                <img src="https://source.unsplash.com/random/600x400/?design,tech" alt="Projet 1">
                 <div class="project-info">
-                    <h3>Projet 1</h3>
-                    <p>Design • Développement</p>
+                    <h3>Application Mobile</h3>
+                    <p>Une expérience utilisateur fluide et intuitive</p>
+                    <div class="tags">
+                        <span class="tag">UI/UX</span>
+                        <span class="tag">React Native</span>
+                    </div>
                 </div>
             </div>
             
             <div class="project">
-                <img src="https://via.placeholder.com/600x400" alt="Projet 2">
+                <img src="https://source.unsplash.com/random/600x400/?branding,creative" alt="Projet 2">
                 <div class="project-info">
-                    <h3>Projet 2</h3>
-                    <p>Branding • Identité visuelle</p>
+                    <h3>Identité Visuelle</h3>
+                    <p>Direction artistique pour une marque innovante</p>
+                    <div class="tags">
+                        <span class="tag">Branding</span>
+                        <span class="tag">Logo</span>
+                    </div>
                 </div>
             </div>
             
             <div class="project">
-                <img src="https://via.placeholder.com/600x400" alt="Projet 3">
+                <img src="https://source.unsplash.com/random/600x400/?web,development" alt="Projet 3">
                 <div class="project-info">
-                    <h3>Projet 3</h3>
-                    <p>Stratégie • Direction artistique</p>
+                    <h3>Plateforme Web</h3>
+                    <p>Solution sur mesure avec technologies modernes</p>
+                    <div class="tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
     
     <footer>
-        <p> 2025 FURSTENBERG Texas. GNU GENERAL PUBLIC LICENSE.</p>
+        <p>© 2025 posneo - FURSTENBERG Texas. GNU GENERAL PUBLIC LICENSE.</p>
     </footer>
+
+    <script>
+        // Animation au scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const projects = document.querySelectorAll('.project');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = `fadeIn 0.8s forwards`;
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            projects.forEach(project => {
+                observer.observe(project);
+            });
+
+            // Effet de parallaxe léger
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.pageYOffset;
+                document.querySelector('.hero').style.backgroundPositionY = `${scrollPosition * 0.4}px`;
+            });
+        });
+    </script>
 </body>
 </html>
