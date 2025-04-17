@@ -3,39 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À propos - Mon Site</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>À propos - posneo</title>
+    <!-- Même CSS que l'index -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6C4DF6;
+            --primary-dark: #5A3EE8;
+            --dark: #1A1A1A;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Coller ici TOUT le CSS de votre index.html */
+        /* [Votre CSS existant complet] */
+        
+        /* Styles spécifiques à la page À propos */
+        .about-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        .about-header {
+            margin-bottom: 3rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .skill-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
+    <!-- Même header que l'index -->
     <header>
-        <div class="logo">posneo</div>
+        <a href="/" class="logo">posneo</a>
         <nav>
-            <a href="index.html" class="active">Accueil</a>
-            <a href="articles.html">Projets</a>
-            <a href="about.html">À propos</a>
-            <a href="contact.html">Contact</a>
+            <a href="/">Accueil</a>
+            <a href="/about" class="active">À propos</a>
+            <a href="/contact">Contact</a>
         </nav>
     </header>
-
+    
     <main class="about-container">
-        <section>
+        <section class="about-header">
             <h1>Qui suis-je ?</h1>
-            <img src="images/portrait.jpg" alt="Ma photo" class="portrait">
-            <p>Passionné par [ton domaine], je crée depuis [X années]...</p>
+            <p class="subtitle">Passionné par la création digitale, je combine design et technologie pour des projets uniques.</p>
         </section>
-
-        <section class="skills">
+        
+        <section>
+            <h2>Mon parcours</h2>
+            <p>Texte décrivant votre background, expérience et philosophie de travail...</p>
+        </section>
+        
+        <section>
             <h2>Mes compétences</h2>
-            <ul>
-                <li>HTML/CSS</li>
-                <li>JavaScript</li>
-                <li>Design</li>
-            </ul>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>UI/UX Design</h3>
+                    <p>Création d'interfaces intuitives et esthétiques</p>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Développement Frontend</h3>
+                    <p>HTML, CSS, JavaScript modernes</p>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Direction Artistique</h3>
+                    <p>Identité visuelle et branding</p>
+                </div>
+            </div>
         </section>
     </main>
-
+    
+    <!-- Même footer que l'index -->
     <footer>
-        <p> 2025 FURSTENBERG Texas. GNU GENERAL PUBLIC LICENSE.</p>
+        <p>FURSTENBERG Texas. GNU GENERAL PUBLIC LICENSE.</p>
     </footer>
 </body>
 </html>
