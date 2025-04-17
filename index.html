@@ -17,7 +17,7 @@
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Reset et polices */
+
         * {
             margin: 0;
             padding: 0;
@@ -35,7 +35,7 @@
             overflow-x: hidden;
         }
         
-        /* En-tête */
+
         header {
             display: flex;
             justify-content: space-between;
@@ -97,7 +97,7 @@
             width: 100%;
         }
         
-        /* Contenu principal */
+
         main {
             padding: 8rem 4rem 4rem;
             min-height: 100vh;
@@ -147,7 +147,7 @@
             box-shadow: 0 6px 20px rgba(108, 77, 246, 0.4);
         }
         
-        /* Grille de projets */
+
         .projects {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -228,7 +228,7 @@
             font-size: 0.75rem;
         }
         
-        /* Pied de page */
+
         footer {
             margin-top: 6rem;
             text-align: center;
@@ -238,7 +238,7 @@
             border-top: 1px solid rgba(0,0,0,0.05);
         }
 
-        /* Animations */
+
         @keyframes fadeIn {
             to {
                 opacity: 1;
@@ -246,7 +246,7 @@
             }
         }
 
-        /* Responsive */
+
         @media (max-width: 768px) {
             header {
                 padding: 1.5rem;
@@ -328,7 +328,7 @@
     </footer>
 
     <script>
-        // Animation au scroll
+
         document.addEventListener('DOMContentLoaded', () => {
             const projects = document.querySelectorAll('.project');
             
@@ -344,7 +344,7 @@
                 observer.observe(project);
             });
 
-            // Effet de parallaxe léger
+
             window.addEventListener('scroll', () => {
                 const scrollPosition = window.pageYOffset;
                 document.querySelector('.hero').style.backgroundPositionY = `${scrollPosition * 0.4}px`;
