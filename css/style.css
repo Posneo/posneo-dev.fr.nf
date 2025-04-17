@@ -41,3 +41,21 @@ footer {
     background: #333;
     color: white;
 }
+
+/* About page */
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.portrait {
+    width: 200px;
+    border-radius: 50%;
+    margin: 20px 0;
+}
+
+.skills ul {
+    columns: 2;
+    list-style-type: square;
+}
