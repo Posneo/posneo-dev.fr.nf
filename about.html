@@ -4,310 +4,201 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À propos - posneo</title>
-    <!-- Même CSS que l'index -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        
         :root {
-    --primary: #6C4DF6;
-    --primary-dark: #5A3EE8;
-    --dark: #1A1A1A;
-    --light: #F8F9FA;
-    --gray: #6C757D;
-    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Reset et polices */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    color: var(--dark);
-    background-color: var(--light);
-    padding: 0;
-    max-width: 1400px;
-    margin: 0 auto;
-    overflow-x: hidden;
-}
-
-/* En-tête */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 4rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(248, 249, 250, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 100;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: var(--primary);
-    transition: var(--transition);
-    text-decoration: none;
-}
-
-.logo:hover {
-    opacity: 0.8;
-}
-
-nav {
-    display: flex;
-    gap: 2rem;
-}
-
-nav a {
-    text-decoration: none;
-    color: var(--dark);
-    font-size: 1rem;
-    font-weight: 500;
-    position: relative;
-    transition: var(--transition);
-    padding: 0.5rem 0;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary);
-    transition: var(--transition);
-}
-
-nav a:hover {
-    color: var(--primary);
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
-nav a.active {
-    color: var(--primary);
-    font-weight: 600;
-}
-
-/* Contenu principal */
-main {
-    padding: 10rem 4rem 4rem;
-    min-height: 100vh;
-}
-
-.hero {
-    margin-bottom: 6rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 1s forwards 0.3s;
-}
-
-h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 600;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    max-width: 800px;
-    background: linear-gradient(90deg, #6C4DF6 0%, #3A0CA3 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.subtitle {
-    font-size: 1.25rem;
-    max-width: 600px;
-    color: var(--gray);
-    margin-bottom: 2.5rem;
-    line-height: 1.6;
-}
-
-.cta-button {
-    display: inline-block;
-    background-color: var(--primary);
-    color: white;
-    padding: 0.8rem 1.8rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: var(--transition);
-    box-shadow: 0 4px 15px rgba(108, 77, 246, 0.3);
-}
-
-.cta-button:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(108, 77, 246, 0.4);
-}
-
-/* Grille de projets */
-.projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2rem;
-    margin-top: 4rem;
-}
-
-.project {
-    position: relative;
-    overflow: hidden;
-    height: 420px;
-    background: #eee;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: var(--transition);
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.project:nth-child(1) { animation: fadeIn 0.8s forwards 0.4s; }
-.project:nth-child(2) { animation: fadeIn 0.8s forwards 0.6s; }
-.project:nth-child(3) { animation: fadeIn 0.8s forwards 0.8s; }
-
-.project:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-}
-
-.project img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
-}
-
-.project:hover img {
-    transform: scale(1.05);
-}
-
-.project-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1.5rem;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    color: white;
-    transform: translateY(100%);
-    transition: var(--transition);
-    opacity: 0;
-}
-
-.project:hover .project-info {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.project-info h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-}
-
-.project-info p {
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
-.tags {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 0.8rem;
-}
-
-.tag {
-    background-color: rgba(255,255,255,0.2);
-    padding: 0.3rem 0.8rem;
-    border-radius: 50px;
-    font-size: 0.75rem;
-}
-
-/* Pied de page */
-footer {
-    margin-top: 6rem;
-    text-align: center;
-    padding: 2rem;
-    color: var(--gray);
-    font-size: 0.9rem;
-    border-top: 1px solid rgba(0,0,0,0.05);
-}
-
-/* Animations */
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    header {
-        padding: 1.5rem;
-    }
-
-    main {
-        padding: 6rem 1.5rem 2rem;
-    }
-
-    nav {
-        gap: 1.2rem;
-    }
-
-    .projects {
-        grid-template-columns: 1fr;
-    }
-}
-        
-        /* Styles spécifiques à la page À propos */
-        .about-container {
-            max-width: 800px;
-            margin: 4rem auto;
-            padding: 0 2rem;
+            --primary: #6C4DF6;
+            --primary-dark: #5A3EE8;
+            --dark: #1A1A1A;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --header-height: 80px;
         }
-        
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            padding: 0;
+            max-width: 1400px;
+            margin: 0 auto;
+            overflow-x: hidden;
+        }
+
+        /* Header fixe */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 4rem;
+            height: var(--header-height);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(248, 249, 250, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--primary);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Contenu principal */
+        main {
+            padding: calc(var(--header-height) + 3rem) 4rem 4rem;
+            min-height: 100vh;
+        }
+
+        /* Styles spécifiques à la page About */
         .about-header {
             margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.3s;
         }
-        
+
+        h1, h2 {
+            background: linear-gradient(90deg, #6C4DF6 0%, #3A0CA3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            margin: 2rem 0 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .portrait {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(108, 77, 246, 0.2);
+        }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            margin: 3rem 0;
         }
-        
+
         .skill-card {
             background: white;
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: var(--transition);
         }
-        
+
         .skill-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            :root {
+                --header-height: 70px;
+            }
+            
+            header {
+                padding: 0 1.5rem;
+            }
+            
+            main {
+                padding: calc(var(--header-height) + 2rem) 1.5rem 2rem;
+            }
+            
+            nav {
+                gap: 1rem;
+            }
+            
+            .portrait {
+                width: 150px;
+                height: 150px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Même header que l'index -->
     <header>
         <a href="/" class="logo">posneo</a>
         <nav>
@@ -317,15 +208,16 @@ footer {
         </nav>
     </header>
     
-    <main class="about-container">
+    <main>
         <section class="about-header">
             <h1>Qui suis-je ?</h1>
-            <p class="subtitle">Passionné par la création digitale, je combine design et technologie pour des projets uniques.</p>
+            <p class="subtitle">Designer et développeur passionné, je crée des expériences digitales mémorables.</p>
+            <img src="/images/portrait.jpg" alt="Mon portrait" class="portrait">
         </section>
         
         <section>
             <h2>Mon parcours</h2>
-            <p>description en cours...</p>
+            <p>parcours en ecriture...</p>
         </section>
         
         <section>
@@ -349,9 +241,8 @@ footer {
         </section>
     </main>
     
-    <!-- Même footer que l'index -->
     <footer>
-        <p>FURSTENBERG Texas. GNU GENERAL PUBLIC LICENSE.</p>
+        <p>© 2025 posneo - FURSTENBERG Texas. GNU GENERAL PUBLIC LICENSE.</p>
     </footer>
 </body>
 </html>
