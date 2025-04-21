@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Projets - posneo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6C4DF6;
+            --primary-dark: #5A3EE8;
+            --dark: #1A1A1A;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --header-height: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            padding: 0;
+            max-width: 1400px;
+            margin: 0 auto;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 4rem;
+            height: var(--header-height);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(248, 249, 250, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--primary);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        main {
+            padding: calc(var(--header-height) + 3rem) 4rem 4rem;
+            min-height: 100vh;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Styles spécifiques aux articles/projets */
+        .projects-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        h1 {
+            background: linear-gradient(90deg, #6C4DF6 0%, #3A0CA3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .project-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .project-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tag {
+            background: rgba(108, 77, 246, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --header-height: 70px;
+            }
+            
+            header {
+                padding: 0 1.5rem;
+            }
+            
+            main {
+                padding: calc(var(--header-height) + 2rem) 1.5rem 2rem;
+            }
+            
+            nav {
+                gap: 1rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">posneo</a>
+        <nav>
+            <a href="/">Accueil</a>
+            <a href="/articles" class="active">Projets</a>
+            <a href="/about">À propos</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="projects-header">
+            <h1>Mes Projets</h1>
+            <p class="subtitle">Découvrez mes réalisations et cas d'études</p>
+        </section>
+        
+        <div class="projects-grid">
+            <article class="project-card">
+                <img src="https://source.unsplash.com/random/600x400/?webdesign" alt="Projet 1" class="project-image">
+                <div class="project-content">
+                    <h2 class="project-title">Application Web</h2>
+                    <span class="project-date">Janvier 2024</span>
+                    <p>Plateforme de gestion de contenu avec tableau de bord personnalisé.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">UI/UX</span>
+                    </div>
+                    <a href="/articles/projet1" class="project-link">Voir le projet →</a>
+                </div>
+            </article>
+            
+            <article class="project-card">
+                <img src="https://source.unsplash.com/random/600x400/?mobileapp" alt="Projet 2" class="project-image">
+                <div class="project-content">
+                    <h2 class="project-title">Application Mobile</h2>
+                    <span class="project-date">Mars 2024</span>
+                    <p>Solution de suivi fitness avec synchronisation cloud.</p>
+                    <div class="project-tags">
+                        <span class="tag">Flutter</span>
+                        <span class="tag">Firebase</span>
+                    </div>
+                    <a href="/articles/projet2" class="project-link">Voir le projet →</a>
+                </div>
+            </article>
+            
+            <article class="project-card">
+                <img src="https://source.unsplash.com/random/600x400/?branding" alt="Projet 3" class="project-image">
+                <div class="project-content">
+                    <h2 class="project-title">Identité Visuelle</h2>
+                    <span class="project-date">Mai 2024</span>
+                    <p>Refonte complète de branding pour une startup tech.</p>
+                    <div class="project-tags">
+                        <span class="tag">Branding</span>
+                        <span class="tag">Illustration</span>
+                    </div>
+                    <a href="/articles/projet3" class="project-link">Voir le projet →</a>
+                </div>
+            </article>
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2025 posneo - FURSTENBERG Texas. GNU GENERAL PUBLIC LICENSE.</p>
+    </footer>
+</body>
+</html>
